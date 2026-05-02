@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сұлтан & Аяулым — Құдалық</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --gold-gradient: linear-gradient(135deg, #c2954a 0%, #e3c18d 50%, #c2954a 100%);
+            --gold-dark: #b08640;
+            --soft-bg: #fdf8f3; 
+            --card-shadow: 0 20px 40px rgba(194, 149, 74, 0.15);
+        }
+
+        body { 
+            margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; 
+            background: var(--soft-bg); color: #333; overflow-x: hidden; 
+        }
+
+        /* ГЛАВНЫЙ ФОТОМЕН ПЕРЕХОД (GRADIENT MASK) */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('image_4.png');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; position: relative; z-index: 5;
+            /* Фотоның астын жұмсақ етіп өшіру */
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        /* ФОТО БІТКЕН ЖЕРДЕГІ АЛТЫН ПЕРЕХОД СИМВОЛЫ */
+        .divider-line {
+            position: absolute; top: 100vh; left: 0; width: 100%; height: 60px;
+            background: var(--soft-bg); margin-top: -30px; z-index: 10;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .divider-line::after {
+            content: "⚜  ◆  ⚜"; color: var(--gold-dark); font-size: 28px; letter-spacing: 20px;
+            text-shadow: 0 0 10px rgba(194, 149, 74, 0.3);
+        }
+
+        /* ЕКІ ЖАҚТАҒЫ АЛТЫН ОЮЛАР */
+        .ornament-border {
+            position: absolute; top: 105vh; width: 50px; height: calc(100% - 105vh);
+            z-index: 1; pointer-events: none; opacity: 0.6;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='100' viewBox='0 0 50 100'%3E%3Cpath d='M25 10c-8 0-12 4-12 8s4 8 8 8 8-4 8-8-4-8-8-8zm0 70c8 0 12-4 12-8s-4-8-8-8-8 4-8 8 4 8 8 8zM8 50c0-8 4-12 8-12s8 4 8 8-4 8-8 8-8-4-8-8zm34 0c0 8-4 12-8 12s-8-4-8-8 4-8 8-8 8 4 8 8z' fill='%23b08640'/%3E%3C/svg%3E");
+            background-repeat: repeat-y;
+        }
+        .left-ornament { left: 10px; }
+        .right-ornament { right: 10px; }
+
+        .main-title {
+            font-family: 'Playfair Display', serif; font-size: clamp(30px, 8vw, 55px);
+            font-style: italic; background: var(--gold-gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .names { 
+            font-family: 'Great Vibes', cursive; font-size: clamp(50px, 13vw, 85px); 
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.6); margin: 0;
+        }
+
+        .main-content { 
+            padding: 80px 20px; max-width: 500px; margin: 0 auto; 
+            position: relative; z-index: 15; 
+        }
+
+        /* ЕРЕКШЕ СТИЛЬДЕГІ ҰЯШЫҚТАР */
+        .card {
+            background: white; padding: 40px 30px; border-radius: 0 50px 0 50px;
+            box-shadow: var(--card-shadow); margin-bottom: 45px; 
+            text-align: center; border: 1.5px solid rgba(194, 149, 74, 0.3);
+            position: relative; opacity: 0; transform: translateY(40px); transition: 1.2s ease-out;
+        }
+        .card.active { opacity: 1; transform: translateY(0); }
+
+        .gold-title { 
+            font-family: 'Playfair Display', serif; color: var(--gold-dark); 
+            font-size: 24px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; 
+        }
+
+        .btn-premium {
+            background: var(--gold-gradient); color: white; padding: 18px; border-radius: 12px;
+            text-decoration: none; font-weight: 600; display: block; border: none; cursor: pointer;
+            box-shadow: 0 10px 20px rgba(194, 149, 74, 0.2); transition: 0.3s;
+            font-size: 16px; margin-top: 15px;
+        }
+        .btn-whatsapp { background: #25D366; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
+
+        /* ЖҮРЕКШЕЛЕР ЖАУЫНЫ */
+        .floating-heart {
+            position: fixed; top: -10%; color: rgba(194, 149, 74, 0.4);
+            font-size: 20px; z-index: 1; pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+
+        input, textarea {
+            width: 100%; padding: 15px; border-radius: 10px; border: 1px solid #e3c18d;
+            margin-bottom: 15px; outline: none; font-family: 'Montserrat', sans-serif;
+            background: #fffaf5; box-sizing: border-box;
+        }
+
+        .footer-note { 
+            font-family: 'Great Vibes', cursive; font-size: clamp(50px, 15vw, 75px); 
+            color: var(--gold-dark); text-align: center; margin: 80px 0;
+        }
+
+        @media (max-width: 768px) {
+            .ornament-border { display: none; }
+        }
+    </style>
+</head>
+<body onclick="playMusic()">
+
+    <audio id="bgMusic" loop>
+        <source src="Ruslan-Satenov-Kudalar-agugai.kz_.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- БАСТЫ БЕТ -->
+    <div class="hero">
+        <h2 class="main-title">Құдалыққа шақырту</h2>
+        <h1 class="names">Сұлтан мен Аяулым</h1>
+    </div>
+
+    <!-- ПЕРЕХОД ЖӘНЕ ОЮЛАР -->
+    <div class="divider-line"></div>
+    <div class="ornament-border left-ornament"></div>
+    <div class="ornament-border right-ornament"></div>
+    
+    <div class="main-content">
+        <!-- ТОЙ ИЕЛЕРІ -->
+        <div class="card">
+            <h2 class="gold-title">Құрметті қонақтар!</h2>
+            <p>Біздің отбасымыздағы айтулы қуаныш — балаларымыз <b>Сұлтан мен Аяулымның</b> құдалық тойының куәсі болуға шақырамыз!</p>
+            <p style="margin-top: 25px; font-weight: 600; font-size: 1.2em; color: var(--gold-dark);">Той иелері:<br>Манас & Ұлбосын</p>
+        </div>
+
+        <!-- УАҚЫТ ПЕН ОРНЫ -->
+        <div class="card">
+            <h2 class="gold-title">Той салтанаты</h2>
+            <p style="font-size: 1.1em;">📅 23 мамыр, 2026 жыл</p>
+            <p style="font-size: 1.1em;">🕒 Сағат 12:00-де</p>
+            <div style="margin: 20px 0; height: 1px; background: var(--gold-gradient);"></div>
+            <p style="font-size: 1.3em; color: var(--gold-dark); font-weight: bold;">"Алтын босаға" мейрамханасы</p>
+            <p>Сарыағаш қаласы</p>
+            <a href="https://maps.google.com" target="_blank" class="btn-premium">📍 Картадан көру</a>
+        </div>
+
+        <!-- БАЙЛАНЫС -->
+        <div class="card">
+            <h2 class="gold-title">Байланыс</h2>
+            <p>Байланыс үшін осы нөмірге хабарласыңыз:</p>
+            <a href="https://wa.me/77067063333" target="_blank" class="btn-premium btn-whatsapp">📱 WhatsApp-қа жазу</a>
+        </div>
+
+        <!-- ТІЛЕК ЖАЗУ -->
+        <div class="card">
+            <h2 class="gold-title">Ақ тілек</h2>
+            <p>Жылы лебізіңізді осында қалдырыңыз:</p>
+            <input type="text" id="guestName" placeholder="Есіміңіз">
+            <textarea id="guestWish" rows="3" placeholder="Тілегіңіз..."></textarea>
+            <button class="btn-premium" onclick="submitWish()">Жіберу ❤️</button>
+        </div>
+
+        <div class="footer-note">Сізді күтеміз!</div>
+    </div>
+
+    <!-- МОДАЛКА -->
+    <div id="wishModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; justify-content:center; align-items:center;" onclick="this.style.display='none'">
+        <div style="background:white; padding:45px; border-radius:30px; text-align:center; border:2px solid var(--gold-dark); max-width: 80%;">
+            <div style="font-size:60px; margin-bottom: 10px;">❤️</div>
+            <p style="font-family:'Great Vibes', cursive; font-size:32px; color:var(--gold-dark); margin: 0;">Тілегіңізге рақмет!</p>
+        </div>
+    </div>
+
+    <script>
+        let audioPlay = false;
+        function playMusic() {
+            const music = document.getElementById('bgMusic');
+            if (!audioPlay) {
+                music.play().catch(e => console.log("Музыканы қолмен қосыңыз"));
+                audioPlay = true;
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            heart.style.opacity = Math.random() * 0.4;
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 6000);
+        }
+        setInterval(createHeart, 700);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.card').forEach(card => observer.observe(card));
+
+        function submitWish() {
+            const name = document.getElementById('guestName').value;
+            if(name.trim() !== "") {
+                document.getElementById('wishModal').style.display = 'flex';
+                document.getElementById('guestName').value = "";
+                document.getElementById('guestWish').value = "";
+            } else {
+                alert('Есіміңізді жазыңыз');
+            }
+        }
+    </script>
+</body>
+</html>
