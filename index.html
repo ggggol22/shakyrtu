@@ -21,16 +21,15 @@
         /* ГЛАВНЫЙ ФОТОМЕН ПЕРЕХОД (GRADIENT MASK) */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('image_4.png');
+            /* ОСЫ ЖЕРДЕ СУРЕТ АТАУЫ ӨЗГЕРТІЛДІ: IMG_0403.png */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('IMG_0403.png');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: white; text-align: center; position: relative; z-index: 5;
-            /* Фотоның астын жұмсақ етіп өшіру */
             -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
 
-        /* ФОТО БІТКЕН ЖЕРДЕГІ АЛТЫН ПЕРЕХОД СИМВОЛЫ */
         .divider-line {
             position: absolute; top: 100vh; left: 0; width: 100%; height: 60px;
             background: var(--soft-bg); margin-top: -30px; z-index: 10;
@@ -41,11 +40,10 @@
             text-shadow: 0 0 10px rgba(194, 149, 74, 0.3);
         }
 
-        /* ЕКІ ЖАҚТАҒЫ АЛТЫН ОЮЛАР */
         .ornament-border {
             position: absolute; top: 105vh; width: 50px; height: calc(100% - 105vh);
             z-index: 1; pointer-events: none; opacity: 0.6;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='100' viewBox='0 0 50 100'%3E%3Cpath d='M25 10c-8 0-12 4-12 8s4 8 8 8 8-4 8-8-4-8-8-8zm0 70c8 0 12-4 12-8s-4-8-8-8-8 4-8 8 4 8 8 8zM8 50c0-8 4-12 8-12s8 4 8 8-4 8-8 8-8-4-8-8zm34 0c0 8-4 12-8 12s-8-4-8-8 4-8 8-8 8 4 8 8z' fill='%23b08640'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='100' viewBox='0 0 50 100'%3E%3Cpath d='M25 10c-8 0-12 4-12 8s4 8 8 8 8-4 8-8-4-8-8-8zm0 70c8 0 12-4 12-8s-4-8-8-8-8 4-8 8 4 8 8 8zM8 50c0-8 4-12 8-12s8 4 8 8-4 8-8 8-8-4-8-8zm34 0c0 8-4 12-8 12s-8-4-8-8 4-8 8-8 8 4 8 8' fill='%23b08640'/%3E%3C/svg%3E");
             background-repeat: repeat-y;
         }
         .left-ornament { left: 10px; }
@@ -68,7 +66,6 @@
             position: relative; z-index: 15; 
         }
 
-        /* ЕРЕКШЕ СТИЛЬДЕГІ ҰЯШЫҚТАР */
         .card {
             background: white; padding: 40px 30px; border-radius: 0 50px 0 50px;
             box-shadow: var(--card-shadow); margin-bottom: 45px; 
@@ -90,7 +87,6 @@
         }
         .btn-whatsapp { background: #25D366; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
 
-        /* ЖҮРЕКШЕЛЕР ЖАУЫНЫ */
         .floating-heart {
             position: fixed; top: -10%; color: rgba(194, 149, 74, 0.4);
             font-size: 20px; z-index: 1; pointer-events: none;
@@ -117,6 +113,7 @@
 <body onclick="playMusic()">
 
     <audio id="bgMusic" loop>
+        <!-- ОСЫ ЖЕРДЕ МУЗЫКА АТАУЫ ӨЗГЕРТІЛДІ: Ruslan-Satenov-Kudalar-agugai.kz_.mp3 -->
         <source src="Ruslan-Satenov-Kudalar-agugai.kz_.mp3" type="audio/mpeg">
     </audio>
 
@@ -135,7 +132,7 @@
         <!-- ТОЙ ИЕЛЕРІ -->
         <div class="card">
             <h2 class="gold-title">Құрметті қонақтар!</h2>
-            <p>Біздің отбасымыздағы айтулы қуаныш — балаларымыз <b>Сұлтан мен Аяулымның</b> құдалық тойының куәсі болуға шақырамыз!</p>
+            <p>Біздің отбасымыздағы айтулы қуаныш — балаларымыз <b>Сұлтан мен Аяулым</b> құдалық тойының куәсі болуға шақырамыз!</p>
             <p style="margin-top: 25px; font-weight: 600; font-size: 1.2em; color: var(--gold-dark);">Той иелері:<br>Манас & Ұлбосын</p>
         </div>
 
@@ -217,3 +214,4 @@
     </script>
 </body>
 </html>
+
