@@ -4,135 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сұлтан & Аяулым — Құдалыққа шақырту</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Montserrat:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --gold-gradient: linear-gradient(135deg, #c2954a 0%, #e3c18d 50%, #c2954a 100%);
-            --gold-dark: #b08640;
-            --soft-bg: #fdf8f3; 
+        :root {
+            --bg-light: #ffffff;
+            --gold-text: #b08640;
+            --text-main: #222;
         }
-        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background: var(--soft-bg); overflow-x: hidden; color: #333; }
-        
-        /* Басты видео блогы */
-        .hero { height: 100vh; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; color: white; text-align: center; }
-        .hero video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 2; }
-        .hero-content { position: relative; z-index: 3; padding: 20px; }
-        
-        .main-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 6vw, 45px); font-style: italic; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
-        .names { font-family: 'Great Vibes', cursive; font-size: clamp(40px, 12vw, 75px); text-shadow: 2px 2px 15px rgba(0,0,0,0.6); margin: 0; }
-        
-        /* Негізгі бөлім */
-        .main-content { padding: 40px 20px; max-width: 500px; margin: 0 auto; position: relative; z-index: 10; }
-        .card { background: white; padding: 35px 25px; border-radius: 0 40px 0 40px; box-shadow: 0 15px 35px rgba(194, 149, 74, 0.15); margin-bottom: 35px; text-align: center; border: 1px solid rgba(194, 149, 74, 0.2); }
-        
-        .gold-text { color: var(--gold-dark); font-weight: 600; font-size: 1.1em; }
-        
-        .btn-premium { background: var(--gold-gradient); color: white; padding: 16px; border-radius: 12px; text-decoration: none; display: block; border: none; width: 100%; font-size: 16px; cursor: pointer; margin-top: 10px; font-weight: 600; box-shadow: 0 5px 15px rgba(194, 149, 74, 0.3); transition: 0.3s; }
-        .btn-whatsapp { background: #25D366; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
-        
-        input, textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #e3c18d; margin-bottom: 12px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; outline: none; }
-        input:focus, textarea:focus { border-color: var(--gold-dark); box-shadow: 0 0 5px rgba(194, 149, 74, 0.3); }
 
-        .footer-note { font-family: 'Great Vibes', cursive; font-size: 50px; color: var(--gold-dark); text-align: center; margin-top: 50px; }
+        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; background-color: var(--bg-light); color: var(--text-main); line-height: 1.6; }
+
+        /* Басты блок - Tilda стиліндегі видео-фон */
+        .hero {
+            height: 100vh; position: relative; overflow: hidden;
+            display: flex; justify-content: center; align-items: center; text-align: center; color: #fff;
+        }
+
+        .hero video {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 2;
+        }
+
+        .hero-content { position: relative; z-index: 3; }
+
+        .hero-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+        .hero-names { font-family: 'Great Vibes', cursive; font-size: clamp(50px, 15vw, 90px); margin: 0; }
+
+        /* Мазмұны */
+        .section { padding: 80px 20px; text-align: center; max-width: 600px; margin: 0 auto; }
+        
+        .section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold-text); margin-bottom: 30px; font-style: italic; }
+        
+        .divider { width: 60px; height: 1px; background: var(--gold-text); margin: 30px auto; }
+
+        .info-block { margin-bottom: 50px; border: 1px solid #f0e6d6; padding: 40px 20px; border-radius: 4px; }
+        
+        .date { font-size: 1.5rem; font-family: 'Playfair Display', serif; margin: 10px 0; }
+        .venue { font-weight: 600; letter-spacing: 1px; }
+
+        /* Батырмалар */
+        .btn {
+            display: inline-block; padding: 15px 40px; border: 1px solid var(--gold-text);
+            color: var(--gold-text); text-decoration: none; text-transform: uppercase;
+            font-size: 0.8rem; letter-spacing: 2px; transition: 0.4s; background: transparent; cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover { background: var(--gold-text); color: #fff; }
+
+        .btn-fill { background: var(--gold-text); color: #fff; border: none; width: 100%; max-width: 300px; }
+
+        /* Форма */
+        .form-container { background: #fdfaf5; padding: 40px 20px; margin-top: 40px; }
+        input, textarea {
+            width: 100%; padding: 15px; margin-bottom: 15px; border: none; border-bottom: 1px solid #ccc;
+            background: transparent; outline: none; font-family: 'Montserrat', sans-serif;
+        }
     </style>
 </head>
 <body onclick="playMusic()">
 
-    <!-- МУЗЫКА: Ренат Гайсин - Сөзім жоқ -->
+    <!-- МУЗЫКА -->
     <audio id="bgMusic" loop>
         <source src="Renat-Gajsin-S-jemin-OST-k-filmu-Brat-ili-Brak.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="hero">
-        <!-- ВИДЕО ФАЙЛЫ -->
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="hero">
         <video autoplay muted loop playsinline id="mainVideo">
             <source src="-7962900172930212313.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h2 class="main-title">Құдалыққа шақырту</h2>
-            <h1 class="names">Сұлтан мен Аяулым</h1>
+            <div class="hero-title">Құдалыққа шақырту</div>
+            <h1 class="hero-names">Сұлтан & Аяулым</h1>
+            <button class="btn" style="color: #fff; border-color: #fff;" onclick="playMusic()" id="musicBtn">🎵 Музыканы қосу</button>
         </div>
-    </div>
+    </section>
 
-    <div class="main-content">
-        <div class="card">
-            <h3 class="gold-text">Құрметті қонақтар!</h3>
-            <p>Өмірдің мәні - жақсылықта, бақыттың кілті - бірлікте. Біздің шаңырағымыздағы қуанышты күнде, балаларымыздың бақытына куә болып, жылы лебіздеріңізді білдіріп, баталарыңызды беруге шақырамыз. Сіздердің қатысуларыңыз біз үшін зор мәртебе!</p>
-            <button class="btn-premium" onclick="playMusic()" id="musicBtn">🎵 Музыканы қосу</button>
+    <!-- ШАҚЫРУ МӘТІНІ -->
+    <section class="section">
+        <div class="section-title">Құрметті қонақтар!</div>
+        <p>Өмірдің мәні - жақсылықта, бақыттың кілті - бірлікте. Біздің шаңырағымыздағы қуанышты күнде, балаларымыздың бақытына куә болып, жылы лебіздеріңізді білдіріп, баталарыңызды беруге шақырамыз.</p>
+        <p>Сіздердің қатысуларыңыз біз үшін зор мәртебе!</p>
+        <div class="divider"></div>
+        <p>Той иелері: <strong>Манас & Ұлбосын</strong></p>
+    </section>
+
+    <!-- УАҚЫТ ПЕН ОРЫН -->
+    <section class="section" style="background-color: #fcfcfc;">
+        <div class="info-block">
+            <div class="section-title">Той салтанаты</div>
+            <div class="date">23 МАМЫР, 2026 ЖЫЛ</div>
+            <div class="divider"></div>
+            <p class="venue">САҒАТ: 12:00</p>
+            <p class="venue">"АЛТЫН БОСАҒА" МЕЙРАМХАНАСЫ</p>
+            <a href="https://maps.google.com" target="_blank" class="btn">Картаны ашу</a>
         </div>
+    </section>
 
-        <div class="card">
-            <h3 class="gold-text">Той салтанаты</h3>
-            <p>📅 23 мамыр, 2026 жыл<br>🕒 Сағат: 12:00</p>
-            <p><b>"Алтын босаға" мейрамханасы</b></p>
-            <a href="https://maps.google.com" target="_blank" class="btn-premium">📍 Картадан көру</a>
-        </div>
-
-        <div class="card">
-            <h3 class="gold-text">Ақ тілек</h3>
-            <p>Жылы лебізіңіз бен ақ батаңызды осында қалдырсаңыз болады:</p>
-            <!-- FORMSPREE СІЛТЕМЕСІ ҚОСЫЛДЫ -->
+    <!-- АҚ ТІЛЕК ФОРМАСЫ -->
+    <section class="section">
+        <div class="section-title">Ақ тілек</div>
+        <p>Келе алсаңыз немесе жылы лебізіңізді қалдырғыңыз келсе, осы форманы толтыруыңызды сұраймыз:</p>
+        
+        <div class="form-container">
             <form id="wishForm" action="https://formspree.io/f/xvzlgypd" method="POST">
-                <input type="text" name="guest_name" placeholder="Есіміңіз" required>
-                <textarea name="guest_wish" rows="3" placeholder="Тілегіңіз..." required></textarea>
-                <button type="submit" class="btn-premium" id="submitBtn">Жіберу ❤️</button>
+                <input type="text" name="name" placeholder="СІЗДІҢ ЕСІМІҢІЗ" required>
+                <textarea name="message" rows="3" placeholder="ТІЛЕГІҢІЗ..." required></textarea>
+                <button type="submit" class="btn btn-fill" id="submitBtn">ЖІБЕРУ ❤️</button>
             </form>
         </div>
-        
-        <a href="https://wa.me/77067063333" target="_blank" class="btn-premium btn-whatsapp" style="text-align: center;">📱 WhatsApp-қа жазу</a>
-        
-        <div class="footer-note">Сізді күтеміз!</div>
-    </div>
+    </section>
 
-    <!-- ТІЛЕК ЖІБЕРІЛГЕНДЕ ШЫҒАТЫН ТЕРЕЗЕ -->
-    <div id="wishModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:2000; justify-content:center; align-items:center;">
-        <div style="background:white; padding:40px; border-radius:30px; text-align:center; max-width: 80%;">
-            <p style="font-family:'Great Vibes', cursive; font-size:35px; color:var(--gold-dark); margin-bottom: 20px;">Тілегіңізге рақмет!</p>
-            <button onclick="document.getElementById('wishModal').style.display='none'" class="btn-premium">Жабу</button>
-        </div>
-    </div>
+    <section class="section">
+        <div class="hero-names" style="color: var(--gold-text); font-size: 50px;">Сіздерді күтеміз!</div>
+    </section>
 
     <script>
-        // Музыканы іске қосу
         let audioPlay = false;
         function playMusic() {
             const music = document.getElementById('bgMusic');
             if (!audioPlay) {
-                music.play().catch(e => console.log("Музыка қосылмады:", e));
+                // 5 секундтан бастап ойнату
+                music.currentTime = 5; 
+                music.play().catch(e => console.log("Браузер блоктады:", e));
                 audioPlay = true;
-                document.getElementById('musicBtn').innerText = "🎵 Музыка ойнап тұр";
+                document.getElementById('musicBtn').innerText = "🎵 ОЙНАП ТҰР";
             }
         }
 
-        // Форманы білдіртпей жіберу (AJAX)
+        // Форма жіберу
         const form = document.getElementById('wishForm');
         form.onsubmit = async (e) => {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
-            btn.innerText = "Жіберілуде...";
-            btn.disabled = true;
-
-            const data = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    document.getElementById('wishModal').style.display = 'flex';
-                    form.reset();
-                } else {
-                    alert("Қате кетті, қайта көріңіз.");
-                }
-            } catch (error) {
-                alert("Желіде қате бар.");
-            } finally {
-                btn.innerText = "Жіберу ❤️";
-                btn.disabled = false;
+            btn.innerText = "ЖІБЕРІЛУДЕ...";
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                alert("Тілегіңізге рақмет!");
+                form.reset();
             }
+            btn.innerText = "ЖІБЕРУ ❤️";
         };
     </script>
 </body>
